@@ -5,8 +5,8 @@
     facts: {
         "battle_turn_count": Int(0),
         "battle_phase": String("initializing"),
-        "enemy_0_hp": Int(100), "enemy_0_hp_max": Int(100),
-        "enemy_0_atk": Int(10), "enemy_0_def": Int(5), "enemy_0_mercy_value": Int(0),
+        "enemy:0:hp": Int(100), "enemy:0:hp_max": Int(100),
+        "enemy:0:atk": Int(10), "enemy:0:def": Int(5), "enemy:0:mercy_value": Int(0),
     },
 
     rules: [
@@ -17,12 +17,12 @@
 
         // HP thresholds
         (id: "enemy_hp_half_dialogue", trigger: "enemy_damaged",
-         condition: LessOrEqual(key: "enemy_0_hp", value: 50),
+         condition: LessOrEqual(key: "enemy:0:hp", value: 50),
          actions: [Custom(action_type: "TriggerDialogue", params: { "dialogue_id": "enemy_half_hp_taunt" })],
          outputs: ["enemy_hp_threshold_reached"], priority: 5, once: true),
 
         (id: "enemy_death_check", trigger: "enemy_damaged",
-         condition: LessOrEqual(key: "enemy_0_hp", value: 0),
+         condition: LessOrEqual(key: "enemy:0:hp", value: 0),
          actions: [Custom(action_type: "EndBattle", params: { "result": "victory" })],
          outputs: ["enemy_killed"], priority: 100),
 
@@ -34,12 +34,12 @@
 
         // Mercy system
         (id: "increment_mercy_on_act", trigger: "player_action_act", condition: Always,
-         modifications: [Increment(key: "enemy_0_mercy_value", amount: 10)],
+         modifications: [Increment(key: "enemy:0:mercy_value", amount: 10)],
          outputs: ["mercy_updated"], priority: 5),
 
         (id: "enemy_spareable_check", trigger: "mercy_updated",
-         condition: GreaterOrEqual(key: "enemy_0_mercy_value", value: 100),
-         modifications: [Set(key: "enemy_0_spareable", value: Bool(true))],
+         condition: GreaterOrEqual(key: "enemy:0:mercy_value", value: 100),
+         modifications: [Set(key: "enemy:0:spareable", value: Bool(true))],
          outputs: ["enemy_spareable"], priority: 5, once: true),
     ],
 )
