@@ -1,8 +1,8 @@
 #![enable(implicit_some)]
 (
     prototypes: {
-        "spear": (
-            visual: "spear",
+        "j_dia_b": (
+            visual: "jevel_diamonds_black",
             collider: BoxCollider(3.0, 12.0),
             damage: 2.0,
             lifetime: 4.0,
@@ -12,25 +12,15 @@
     },
 
     behaviors: {
-        "move_right": Linear((
-            dir: (1.0, 0.0),
-            speed: 200.0,
-        )),
-        "fade_in": Tween((
-            target: Opacity,
-            duration: 2.0,
-            ease: QuadOut,
-            range: (0.0, 1.0),
-            delay: 0.0,
-        )),
+        "static": Stationary(),
     },
 
     timeline: [
         (
             t: 0.0,
-            spawn: "spear",
-            pattern: EdgeGenerator(count: 5, side: Left, spacing: 35.0, margin: 250.0),
-            apply: ["move_right", "fade_in"],
+            spawn: "j_dia_b",
+            pattern: Single,
+            apply: ["static"],
         ),
     ],
 )

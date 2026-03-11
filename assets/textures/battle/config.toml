@@ -57,12 +57,9 @@ flip_y = true
 
 # Battle bullets
 [[sprites]]
-name = "spear"
-path = "assets/textures/battle/bullets/spear/spear.png"
+name = "jevel_diamonds_white"
+path = "assets/textures/battle/bullets/jevel/diamonds_white.png"
 
-# Flowey pellet animation (36 frames at 0.05s per frame)
-[[animations]]
-name = "flowey_pellet"
-path = "assets/textures/battle/bullets/flowey_pellet"
-frame_duration = 0.05
-looping = true
+[[sprites]]
+name = "jevel_diamonds_black"
+path = "assets/textures/battle/bullets/jevel/diamonds_black.png"
