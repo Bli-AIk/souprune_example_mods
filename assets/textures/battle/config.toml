@@ -57,9 +57,9 @@ flip_y = true
 
 # Battle bullets
 [[sprites]]
-name = "jevel_diamonds_white"
-path = "assets/textures/battle/bullets/jevel/diamonds_white.png"
+name = "jevil_diamonds_white"
+path = "assets/textures/battle/bullets/jevil/diamonds_white.png"
 
 [[sprites]]
-name = "jevel_diamonds_black"
-path = "assets/textures/battle/bullets/jevel/diamonds_black.png"
+name = "jevil_diamonds_black"
+path = "assets/textures/battle/bullets/jevil/diamonds_black.png"
