@@ -13,6 +13,11 @@
 
     behaviors: {
         "static": Stationary(),
+
+        "move_up_linear": Linear((
+            dir: (0.0, 1.0),
+            speed: 100.0,
+        ))
     },
 
     timeline: [
@@ -21,6 +26,12 @@
             spawn: "j_dia_b",
             pattern: Single(offset: (0.0, -90.0)),
             apply: ["static"],
+        ),
+        (
+            t: 0.0,
+            spawn: "j_dia_b",
+            pattern: LineGenerator(count: 6, spacing: 22.5, direction: (0.0, 1.0)),
+            apply: ["move_up_linear"],
         ),
     ],
 )
