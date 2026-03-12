@@ -8,6 +8,7 @@
 // 完整的 FRE 导航示例请参考 example_mod。
 
 (
+    world_space: true,
     // View-local facts for basic state
     // 基础状态的 View 局部事实
     facts: {

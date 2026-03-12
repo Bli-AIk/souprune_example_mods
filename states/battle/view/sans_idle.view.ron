@@ -3,6 +3,7 @@
 // Sans 待机动画视图布局
 
 (
+    world_space: true,
     roots: [
         (
             name: "Sans_Legs",
