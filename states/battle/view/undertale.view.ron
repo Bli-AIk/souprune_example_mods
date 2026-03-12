@@ -21,98 +21,15 @@
             name: "BattleBox",
             tags: ["BattleBox"],
             view_box: (
-                width: 566.0,
+                width: 130.0, //566.0,
                 height: 130.0,
                 border_width: 5.0,
-                offset: (0.0, -80.0, 0.0),
+                offset: (0.0, 0.0, 0.0),
                 structure_file: "shared/view_structures/view_box.sdf.ron",
             ),
             children: [],
         ),
 
-        // Fight Button
-        (
-            name: "BtnFight",
-            sprite: (
-                visual: "assets/textures/battle/view/fight/false.png",
-                transform: (
-                    translation: (-233.0, -213.0, 1.0),
-                ),
-            ),
-        ),
-        (
-            name: "BtnFightSelected",
-            visible_when: "$button_selection == 0",
-            sprite: (
-                visual: "assets/textures/battle/view/fight/true.png",
-                transform: (
-                    translation: (-233.0, -213.0, 1.5),
-                ),
-            ),
-        ),
-
-        // Act Button
-        (
-            name: "BtnAct",
-            sprite: (
-                visual: "assets/textures/battle/view/act/false.png",
-                transform: (
-                    translation: (-80.0, -213.0, 1.0),
-                ),
-            ),
-        ),
-        (
-            name: "BtnActSelected",
-            visible_when: "$button_selection == 1",
-            sprite: (
-                visual: "assets/textures/battle/view/act/true.png",
-                transform: (
-                    translation: (-80.0, -213.0, 1.5),
-                ),
-            ),
-        ),
-
-        // Item Button
-        (
-            name: "BtnItem",
-            sprite: (
-                visual: "assets/textures/battle/view/item/false.png",
-                transform: (
-                    translation: (80.0, -213.0, 1.0),
-                ),
-            ),
-        ),
-        (
-            name: "BtnItemSelected",
-            visible_when: "$button_selection == 2",
-            sprite: (
-                visual: "assets/textures/battle/view/item/true.png",
-                transform: (
-                    translation: (80.0, -213.0, 1.5),
-                ),
-            ),
-        ),
-
-        // Mercy Button
-        (
-            name: "BtnMercy",
-            sprite: (
-                visual: "assets/textures/battle/view/mercy/false.png",
-                transform: (
-                    translation: (235.0, -213.0, 1.0),
-                ),
-            ),
-        ),
-        (
-            name: "BtnMercySelected",
-            visible_when: "$button_selection == 3",
-            sprite: (
-                visual: "assets/textures/battle/view/mercy/true.png",
-                transform: (
-                    translation: (235.0, -213.0, 1.5),
-                ),
-            ),
-        ),
 
         // HUD Info
         (

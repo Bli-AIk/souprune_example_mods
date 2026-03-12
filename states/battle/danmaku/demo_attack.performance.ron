@@ -19,7 +19,7 @@
         (
             t: 0.0,
             spawn: "j_dia_b",
-            pattern: Single(offset: (0.0, -50.0)),
+            pattern: Single(offset: (0.0, -90.0)),
             apply: ["static"],
         ),
     ],
