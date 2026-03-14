@@ -8,7 +8,7 @@
         SetPlayer(Spawn(config_path: "states/battle/players/player.battle_player.ron", position: (0.0, -80.0))),
 
         // AM 动画演出（包含战斗框和弹幕）
-        AmPerformance(
+        AlightMotionPerformance(
             amproj_path: "demo_turn.amproj",
             wait_for_completion: true,
         ),
