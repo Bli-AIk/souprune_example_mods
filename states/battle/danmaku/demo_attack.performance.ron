@@ -1,13 +1,12 @@
 #![enable(implicit_some)]
 (
     prototypes: {
-        "knife": (
-            visual: "chara_knife",
-            collider: BoxCollider(8.0, 12.0),
+        "j_dia_b": (
+            visual: "jevil_diamonds_black",
+            collider: BoxCollider(3.0, 10.0),
             damage: 2.0,
             lifetime: 990.0,
             z_index: 15.0,
-            rotation: 90.0,
             hit_behavior: Persistent,
         ),
     },
@@ -24,14 +23,14 @@
     timeline: [
         (
             t: 0.0,
-            spawn: "knife",
+            spawn: "j_dia_b",
             pattern: Single,
             offset: (0.0, -90.0),
             apply: ["static"],
         ),
         (
             t: 0.0,
-            spawn: "knife",
+            spawn: "j_dia_b",
             pattern: LineGenerator(count: 6, spacing: 22.5, direction: (0.0, 1.0)),
             offset: (0.0, -90.0),
             apply: ["move_up_linear"],
