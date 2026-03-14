@@ -1,7 +1,7 @@
-name = "example_battle_mod"
+name = "EVAERDRAD_storyspin_chara_fanmade"
 version = "0.1.0"
-authors = ["Your Name"]
-description = "An example mod for SoupRune (Battle Only)."
+authors = ["Bli-AIk"]
+description = "Fan-made Chara battle mod inspired by STORYSPIN. A tribute to SSPIN ST's music."
 
 # Resource directories configuration
 # 资源目录配置
