@@ -117,7 +117,7 @@
                     // Use dialogue_text fact for typewriter effect
                     // 使用 dialogue_text fact 以支持打字机效果
                     content: "{{dialogue_text}}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -140,7 +140,7 @@
                 (
                     id: "EnemyNames",
                     content: "{|name, i| in $enemy_names[$enemy_view_offset..$enemy_view_offset+$enemy_display_limit] => \"* {name}\"}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -165,7 +165,7 @@
                 (
                     id: "ActOptionsLeft",
                     content: "{|name, i| in $action_labels[0..$act_count step 2] => \"* {name}\"}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -181,7 +181,7 @@
                 (
                     id: "ActOptionsRight",
                     content: "{|name, i| in $action_labels[1..$act_count step 2] => \"* {name}\"}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -202,7 +202,7 @@
                 (
                     id: "MercyOptions",
                     content: "{|name, i| in $mercy_labels[0..$mercy_count] => \"* {name}\"}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -226,7 +226,7 @@
                 (
                     id: "ItemGridLeft",
                     content: "{|name, i| in $item_display_names[floor($item_selection/4)*4..floor($item_selection/4)*4+4 step 2] => \"* {name}\"}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -242,7 +242,7 @@
                 (
                     id: "ItemGridRight",
                     content: "{|name, i| in $item_display_names[floor($item_selection/4)*4+1..floor($item_selection/4)*4+4 step 2] => \"* {name}\"}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -256,7 +256,7 @@
                 (
                     id: "ItemPageText",
                     content: "PAGE {{item_page}}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -276,7 +276,7 @@
                     // Display dialogue_text synced from Mortar typewriter
                     // 显示从 Mortar 打字机同步的 dialogue_text
                     content: "{{dialogue_text}}",
-                    font: DeterminationMono,
+                    font: "DTM-Mono",
                     world_scale: (26.0, 26.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -595,7 +595,7 @@
                 (
                     id: "PlayerName",
                     content: "{$player:name}",
-                    font: BattleHud,
+                    font: "battlehud",
                     world_scale: (24.0, 24.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -605,7 +605,7 @@
                 (
                     id: "PlayerLevelLabel",
                     content: "{{battle/ui:LV}}",
-                    font: BattleHud,
+                    font: "battlehud",
                     world_scale: (24.0, 24.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -615,7 +615,7 @@
                 (
                     id: "PlayerLevelValue",
                     content: "{$player:lv}",
-                    font: BattleHud,
+                    font: "battlehud",
                     world_scale: (24.0, 24.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -625,7 +625,7 @@
                 (
                     id: "HPValueCurrent",
                     content: "{$player:hp}",
-                    font: BattleHud,
+                    font: "battlehud",
                     world_scale: (24.0, 24.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -635,7 +635,7 @@
                 (
                     id: "HPSeparator",
                     content: "/",
-                    font: BattleHud,
+                    font: "battlehud",
                     world_scale: (24.0, 24.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
@@ -645,7 +645,7 @@
                 (
                     id: "HPValueMax",
                     content: "{$player:hp_max}",
-                    font: BattleHud,
+                    font: "battlehud",
                     world_scale: (24.0, 24.0),
                     color: (1.0, 1.0, 1.0, 1.0),
                     transform: (
