@@ -18,7 +18,5 @@ undertale_preset = "0.1.0"
 wasm = "mod_example.wasm"
 
 [game]
-global_rules = "global.fre.ron"
 initial_battle_path = "states/battle/chapters/demo.sequence.ron"
-input_config_path = "config/input.ron"
 required_modules = ["common", "battle"]
