@@ -5,9 +5,14 @@
 use anyhow::Result;
 use souprune_vessel::prelude::*;
 
+mod performances;
+
 vessel_guest! {
     fn build(reg: &mut Registry) -> Result<()> {
-        let _ = reg;
+        reg.emit_ron(
+            "battle/danmaku/demo_attack.performance.ron",
+            &performances::demo_attack(),
+        )?;
         Ok(())
     }
 }
