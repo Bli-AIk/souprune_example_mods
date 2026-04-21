@@ -3,9 +3,9 @@
     mode: "battle",
     chapters: [
         SetCamera(SetZoom(2.0)),
-        SpawnView(view_layout: "states/battle/view/sans_idle.view.ron"),
-        SpawnView(view_layout: "states/battle/view/undertale_no_box.view.ron"),
-        SetPlayer(Spawn(config_path: "states/battle/players/player.battle_player.ron", position: (0.0, -80.0))),
+        SpawnView(view_layout: "battle/view/sans_idle.view.ron"),
+        SpawnView(view_layout: "battle/view/undertale_no_box.view.ron"),
+        SetPlayer(Spawn(config_path: "battle/players/player.battle_player.ron", position: (0.0, -80.0))),
 
         // AM 动画演出（包含战斗框和弹幕）
         AlightMotionPerformance(

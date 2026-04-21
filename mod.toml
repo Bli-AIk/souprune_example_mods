@@ -16,8 +16,13 @@ undertale_preset = "0.1.0"
 [mod_library]
 # WASM component file, loaded by wasmtime at runtime
 # WASM 组件文件，运行时由 wasmtime 加载
-wasm = "mod_example.wasm"
+wasm = ".build/runtime.wasm"
+
+[content_library]
+wasm = ".build/content.wasm"
+managed_paths = []
 
 [game]
-initial_battle_path = "states/battle/chapters/demo.sequence.ron"
+initial_battle_path = "battle/chapters/demo.sequence.ron"
 required_modules = ["common", "battle"]
+locales_directory = "assets/locales"

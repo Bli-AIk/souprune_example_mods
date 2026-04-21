@@ -20,18 +20,18 @@
     requires: [
         // Battle menu rules — split into logical groups
         // 战斗菜单规则 — 按逻辑分组拆分
-        File("states/battle/rules/menu_navigation.fre.ron"),
-        File("states/battle/rules/menu_confirm.fre.ron"),
-        File("states/battle/rules/menu_cancel.fre.ron"),
-        File("states/battle/rules/dialogue_stop.fre.ron"),
+        File("battle/rules/menu_navigation.fre.ron"),
+        File("battle/rules/menu_confirm.fre.ron"),
+        File("battle/rules/menu_cancel.fre.ron"),
+        File("battle/rules/dialogue_stop.fre.ron"),
         
         // Dialogue rules (encounter intro, ACT narration)
         // 对话规则（遭遇开场、ACT 旁白）
-        File("states/battle/rules/dialogue_test.fre.ron"),
+        File("battle/rules/dialogue_test.fre.ron"),
 
         // Shared dialogue input rules (cancel to skip typewriter, confirm to advance)
         // 共享对话输入规则（取消键跳过打字机，确认键步进对话）
-        File("shared/dialogue.fre.ron"),
+        File("narrative/dialogue.fre.ron"),
 
         // Enemies interface - bound by SpawnView's bindings
         // 敌人接口 - 由 SpawnView 的 bindings 绑定
@@ -109,7 +109,7 @@
                 height: 130.0,
                 border_width: 5.0,
                 offset: (0.0, -80.0, 0.0),
-                structure_file: "shared/view_structures/view_box.sdf.ron",
+                structure_file: "view/structures/view_box.sdf.ron",
             ),
             texts: [
                 (
@@ -309,7 +309,7 @@
                         // Use green enemy HP bar shader with new material system
                         // 使用新材质系统的绿色敌人 HP 条 shader
                         material: (
-                            shader: "shared/shaders/enemy_hp_bar_sprite.wgsl",
+                            shader: "assets/shaders/enemy_hp_bar_sprite.wgsl",
                             params: {
                                 "hp_ratio": Expr("$enemy_hps[@i] / $enemy_hp_maxs[@i]"),
                                 "lag_ratio": Static(1.0),
@@ -581,7 +581,7 @@
                 height: 130.0,
                 border_width: 3.0,
                 offset: (-274.0, -80.5, 11.0),
-                structure_file: "shared/view_structures/attack_bar.sdf.ron",
+                structure_file: "view/structures/attack_bar.sdf.ron",
             ),
         ),
 
@@ -674,7 +674,7 @@
                         // New material system for player HP bar
                         // 新的材质系统用于玩家 HP 条
                         material: (
-                            shader: "shared/shaders/hp_bar_sprite.wgsl",
+                            shader: "assets/shaders/hp_bar_sprite.wgsl",
                             params: {
                                 "hp_ratio": Expr("$player:hp / $player:hp_max"),
                                 "lag_ratio": Static(1.0),
