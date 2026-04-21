@@ -35,7 +35,7 @@ sprite: (
     visual: "procedural://white_pixel",
     material: (
         // 可以是任意路径 / Can be any path
-        shader: "shared/shaders/hp_bar_sprite.wgsl",
+        shader: "assets/shaders/hp_bar_sprite.wgsl",
         // 或者使用 mod:// 协议引用 Mod 目录中的着色器
         // Or use mod:// protocol to reference shaders in Mod directory
         // shader: "mod://my_awesome_mod/shaders/custom_effect.wgsl",

@@ -1,5 +1,5 @@
 [package]
-name = "mod_example"
+name = "content"
 version = "0.1.0"
 edition = "2024"
 
@@ -9,4 +9,5 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [dependencies]
-souprune_sdk = { path = "../../../../crates/souprune_sdk", version = "0.2" }
+anyhow = "1"
+souprune_vessel = { path = "../../../crates/souprune_vessel" }
