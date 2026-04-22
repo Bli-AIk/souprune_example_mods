@@ -37,11 +37,11 @@
         ),
     },
     behaviors: {
-        "static": Stationary(),
         "move_up_linear": Linear((
             dir: (0.0, 1.0),
             speed: 100.0,
         )),
+        "static": Stationary(),
     },
     timeline: [
         (
