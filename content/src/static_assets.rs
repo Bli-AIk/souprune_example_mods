@@ -1,29 +1,26 @@
-//! Canonical static RON assets emitted by the content guest.
+//! Bootstrapped static asset emitters for this content guest.
 //!
-//! 由 content guest 发射的 canonical 静态 RON 资产。
+//! 当前内容 guest 的 bootstrap 静态资产发射模块。
 
 use anyhow::Result;
 use souprune_vessel::prelude::*;
 
-/// Emit all static canonical RON assets owned by this mod.
+#[path = "static_assets/battle_chapters_demo_sequence_ron.rs"]
+mod battle_chapters_demo_sequence_ron;
+#[path = "static_assets/battle_rules_demo_battle_fre_ron.rs"]
+mod battle_rules_demo_battle_fre_ron;
+#[path = "static_assets/battle_view_undertale_view_ron.rs"]
+mod battle_view_undertale_view_ron;
+#[path = "static_assets/view_structures_attack_bar_sdf_ron.rs"]
+mod view_structures_attack_bar_sdf_ron;
+
+/// Emit all bootstrapped static assets for this mod.
 ///
-/// 发射当前 mod 拥有的全部静态 canonical RON 资产。
+/// 发射当前 mod 的全部 bootstrap 静态资产。
 pub fn emit_all(reg: &mut Registry) -> Result<()> {
-    reg.emit_canonical_source(
-        "battle/chapters/demo.sequence.ron",
-        include_str!("../ron/battle/chapters/demo.sequence.ron"),
-    )?;
-    reg.emit_canonical_source(
-        "battle/rules/demo_battle.fre.ron",
-        include_str!("../ron/battle/rules/demo_battle.fre.ron"),
-    )?;
-    reg.emit_canonical_source(
-        "battle/view/undertale.view.ron",
-        include_str!("../ron/battle/view/undertale.view.ron"),
-    )?;
-    reg.emit_canonical_source(
-        "view/structures/attack_bar.sdf.ron",
-        include_str!("../ron/view/structures/attack_bar.sdf.ron"),
-    )?;
+    battle_chapters_demo_sequence_ron::emit(reg)?;
+    battle_rules_demo_battle_fre_ron::emit(reg)?;
+    battle_view_undertale_view_ron::emit(reg)?;
+    view_structures_attack_bar_sdf_ron::emit(reg)?;
     Ok(())
 }
