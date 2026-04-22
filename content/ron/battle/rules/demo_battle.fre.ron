@@ -1,0 +1,45 @@
+#![enable(implicit_some)]
+// Demo Battle Rules — turn counting, HP thresholds, mercy system
+
+(
+    facts: {
+        "battle_turn_count": Int(0),
+        "battle_phase": String("initializing"),
+        "enemy:0:hp": Int(100), "enemy:0:hp_max": Int(100),
+        "enemy:0:atk": Int(10), "enemy:0:def": Int(5), "enemy:0:mercy_value": Int(0),
+    },
+
+    rules: [
+        // Turn management
+        (id: "increment_turn_count", event: Event("turn_started"),
+         modifications: [Increment(key: "battle_turn_count", amount: 1)],
+         outputs: ["turn_count_updated"], priority: 10),
+
+        // HP thresholds
+        (id: "enemy_hp_half_dialogue", event: Event("enemy_damaged"),
+         conditions: ["$enemy:0:hp <= 50"],
+         actions: [Custom(action_type: "TriggerDialogue", params: { "dialogue_id": "enemy_half_hp_taunt" })],
+         outputs: ["enemy_hp_threshold_reached"], priority: 5),
+
+        (id: "enemy_death_check", event: Event("enemy_damaged"),
+         conditions: ["$enemy:0:hp <= 0"],
+         actions: [Custom(action_type: "EndBattle", params: { "result": "victory" })],
+         outputs: ["enemy_killed"], priority: 100),
+
+        // Turn-based dialogue
+        (id: "turn_3_dialogue", event: Event("turn_count_updated"),
+         conditions: ["$battle_turn_count == 3"],
+         actions: [Custom(action_type: "TriggerDialogue", params: { "dialogue_id": "turn_3_boss_taunt" })],
+         outputs: ["turn_milestone_reached"], priority: 5),
+
+        // Mercy system
+        (id: "increment_mercy_on_act", event: Event("player_action_act"),
+         modifications: [Increment(key: "enemy:0:mercy_value", amount: 10)],
+         outputs: ["mercy_updated"], priority: 5),
+
+        (id: "enemy_spareable_check", event: Event("mercy_updated"),
+         conditions: ["$enemy:0:mercy_value >= 100"],
+         modifications: [Set(key: "enemy:0:spareable", value: Bool(true))],
+         outputs: ["enemy_spareable"], priority: 5),
+    ],
+)
