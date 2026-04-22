@@ -5,16 +5,11 @@
 use anyhow::Result;
 use souprune_vessel::prelude::*;
 
-mod performances;
-mod static_assets;
+mod support;
+include!(concat!(env!("OUT_DIR"), "/vessel_content_registry.rs"));
 
 vessel_guest! {
     fn build(reg: &mut Registry) -> Result<()> {
-        static_assets::emit_all(&mut reg)?;
-        reg.emit_ron(
-            "battle/danmaku/demo_attack.performance.ron",
-            &performances::demo_attack(),
-        )?;
-        Ok(())
+        emit_all(&mut reg)
     }
 }
