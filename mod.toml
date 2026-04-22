@@ -20,15 +20,6 @@ wasm = ".build/runtime.wasm"
 
 [content_library]
 wasm = ".build/content.wasm"
-managed_paths = [
-    "battle/alight_motion_config.ron",
-    "battle/chapters/demo.sequence.ron",
-    "battle/danmaku/demo_attack.performance.ron",
-    "battle/view/sans_idle.view.ron",
-    "battle/view/undertale.view.ron",
-    "battle/view/undertale_no_box.view.ron",
-    "view/structures/attack_bar.sdf.ron",
-]
 
 [game]
 initial_battle_path = "battle/chapters/demo.sequence.ron"

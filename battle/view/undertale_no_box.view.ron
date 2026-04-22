@@ -562,10 +562,10 @@
                         material: Some((
                             shader: "assets/shaders/hp_bar_sprite.wgsl",
                             params: {
-                                "lag_ratio": Static(1.0),
-                                "half_width": Expr("40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2"),
-                                "alpha": Static(1.0),
                                 "hp_ratio": Expr("$player:hp / $player:hp_max"),
+                                "alpha": Static(1.0),
+                                "half_width": Expr("40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2"),
+                                "lag_ratio": Static(1.0),
                             },
                             animations: Some((
                                 lag: Some((
