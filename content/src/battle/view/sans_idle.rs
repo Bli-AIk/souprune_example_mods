@@ -18,27 +18,57 @@ pub fn emit(reg: &mut Registry) -> Result<()> {
 ///
 /// 构建该资源的类型化值。
 pub fn asset() -> ViewLayoutAsset {
-    view_layout(vec![view_node("Sans_Legs")
-        .sprite(
-            view_sprite("assets/textures/battle/sans/legs.png")
-                .translation(vector3(3.0, 57.0, 0.0))
-                .scale(vector3(2.0, 2.0, 2.0)),
-        )
-        .children(vec![
-            view_node("Sans_Torso").sprite(
-                view_sprite("assets/textures/battle/sans/torso.png").translation(vector3(
-                    expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
-                    expression("23.0 + (sin(snap(@time * 0.5, 1.0/30.0) * 20.0) / 1.5)"),
-                    0.1,
-                )),
-            ),
-            view_node("Sans_Head").sprite(
-                view_sprite("assets/textures/battle/sans/head.png").translation(vector3(
-                    expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
-                    expression("45.0 + sin(snap(@time * 0.5, 1.0/30.0) * 20.0)"),
-                    0.2,
-                )),
-            ),
-        ])])
-    .world_space(true)
+    ViewLayout {
+        roots: Vec::from([ViewNodeDef {
+            name: "Sans_Legs".into(),
+            sprite: Some(SpriteDef {
+                visual: Visual("assets/textures/battle/sans/legs.png".into()),
+                transform: Some(SerializableTransform {
+                    translation: Some(vector3(3.0, 57.0, 0.0)),
+                    scale: Some(vector3(2.0, 2.0, 2.0)),
+                    ..Default::default()
+                }),
+                ..Default::default()
+            }),
+            children: Vec::from([
+                ViewNodeDef {
+                    name: "Sans_Torso".into(),
+                    sprite: Some(SpriteDef {
+                        visual: Visual("assets/textures/battle/sans/torso.png".into()),
+                        transform: Some(SerializableTransform {
+                            translation: Some(vector3_value(
+                                expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
+                                expression(
+                                    "23.0 + (sin(snap(@time * 0.5, 1.0/30.0) * 20.0) / 1.5)",
+                                ),
+                                static_float(0.1),
+                            )),
+                            ..Default::default()
+                        }),
+                        ..Default::default()
+                    }),
+                    ..Default::default()
+                },
+                ViewNodeDef {
+                    name: "Sans_Head".into(),
+                    sprite: Some(SpriteDef {
+                        visual: Visual("assets/textures/battle/sans/head.png".into()),
+                        transform: Some(SerializableTransform {
+                            translation: Some(vector3_value(
+                                expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
+                                expression("45.0 + sin(snap(@time * 0.5, 1.0/30.0) * 20.0)"),
+                                static_float(0.2),
+                            )),
+                            ..Default::default()
+                        }),
+                        ..Default::default()
+                    }),
+                    ..Default::default()
+                },
+            ]),
+            ..Default::default()
+        }]),
+        world_space: true,
+        ..Default::default()
+    }
 }
