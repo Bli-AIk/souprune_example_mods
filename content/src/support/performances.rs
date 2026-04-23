@@ -3,15 +3,16 @@
 //! 为 `example_battle_mod` 生成的弹幕演出。
 
 use souprune_schema::danmaku::*;
-use souprune_vessel::prelude::*;
+use std::collections::HashMap;
 
 /// Build the demo attack performance used by `example_battle_mod`.
 ///
 /// 构建 `example_battle_mod` 使用的演示攻击演出。
 pub fn demo_attack() -> DanmakuPerformance {
-    performance! {
-        prototypes {
-            "j_dia_b" => BulletPrototype {
+    DanmakuPerformance {
+        prototypes: HashMap::from([(
+            "j_dia_b".to_string(),
+            BulletPrototype {
                 visual: "jevil_diamonds_black".to_string(),
                 collider: ColliderShape::rectangle(3.0, 10.0),
                 damage: 2.0,
@@ -20,12 +21,15 @@ pub fn demo_attack() -> DanmakuPerformance {
                 hit_behavior: HitBehaviorPreset::Persistent,
                 ..Default::default()
             },
-        }
-        behaviors {
-            "static" => BulletBehavior::stationary(),
-            "move_up_linear" => BulletBehavior::linear((0.0, 1.0), 100.0),
-        }
-        timeline [
+        )]),
+        behaviors: HashMap::from([
+            ("static".to_string(), BulletBehavior::stationary()),
+            (
+                "move_up_linear".to_string(),
+                BulletBehavior::linear((0.0, 1.0), 100.0),
+            ),
+        ]),
+        timeline: vec![
             TimelineEvent::delta_with(
                 0.0,
                 "j_dia_b",
@@ -42,6 +46,7 @@ pub fn demo_attack() -> DanmakuPerformance {
                 ["move_up_linear"],
                 [],
             ),
-        ]
+        ],
+        duration: None,
     }
 }
