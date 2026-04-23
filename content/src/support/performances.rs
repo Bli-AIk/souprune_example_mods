@@ -3,7 +3,7 @@
 //! 为 `example_am_mod` 生成的弹幕演出。
 
 use souprune_schema::danmaku::*;
-use souprune_vessel::prelude::*;
+use std::collections::HashMap;
 
 fn custom_behavior(id: &str, props: &[(&str, f32)]) -> BulletBehavior {
     BulletBehavior::custom(id, props.iter().copied())
@@ -69,45 +69,72 @@ fn tinted_pellet(hit_behavior: HitBehaviorPreset, hex: &str) -> BulletPrototype 
 ///
 /// 构建 `example_am_mod` 使用的演示攻击演出。
 pub fn demo_attack() -> DanmakuPerformance {
-    performance! {
-        prototypes {
-            "spear" => spear_prototype(),
-            "pellet" => pellet_prototype(),
-            "pellet_orange" => tinted_pellet(HitBehaviorPreset::DamageWhenStationary, "#FCA600"),
-            "pellet_blue" => tinted_pellet(HitBehaviorPreset::DamageWhenMoving, "#40FEFE"),
-        }
-        behaviors {
-            "move_right" => BulletBehavior::linear((1.0, 0.0), 200.0),
-            "move_left" => BulletBehavior::linear((-1.0, 0.0), 200.0),
-            "move_down" => BulletBehavior::linear((0.0, -1.0), 150.0),
-            "spiral_in" => BulletBehavior::orbital(0.8, -60.0),
-            "aimed" => custom_behavior("aimed_spear", &[("speed", 180.0), ("smoothness", 0.8)]),
-            "fade_in" => fade_in(),
-            "spiral_homing" => custom_behavior(
-                "spiral_homing",
-                &[
-                    ("spiral_speed", 80.0),
-                    ("angular_velocity", 3.0),
-                    ("homing_strength", 0.5),
-                    ("homing_delay", 0.5),
-                ],
+    DanmakuPerformance {
+        prototypes: HashMap::from([
+            ("spear".to_string(), spear_prototype()),
+            ("pellet".to_string(), pellet_prototype()),
+            (
+                "pellet_orange".to_string(),
+                tinted_pellet(HitBehaviorPreset::DamageWhenStationary, "#FCA600"),
             ),
-            "wave_burst" => custom_behavior(
-                "wave_burst",
-                &[
-                    ("base_speed", 120.0),
-                    ("wave_amplitude", 30.0),
-                    ("wave_frequency", 4.0),
-                    ("burst_time", 0.8),
-                    ("burst_multiplier", 2.5),
-                ],
+            (
+                "pellet_blue".to_string(),
+                tinted_pellet(HitBehaviorPreset::DamageWhenMoving, "#40FEFE"),
             ),
-            "gravity_drop" => custom_behavior(
-                "gravity_drop",
-                &[("gravity", 200.0), ("bounce_damping", 0.7)],
+        ]),
+        behaviors: HashMap::from([
+            (
+                "move_right".to_string(),
+                BulletBehavior::linear((1.0, 0.0), 200.0),
             ),
-        }
-        timeline [
+            (
+                "move_left".to_string(),
+                BulletBehavior::linear((-1.0, 0.0), 200.0),
+            ),
+            (
+                "move_down".to_string(),
+                BulletBehavior::linear((0.0, -1.0), 150.0),
+            ),
+            ("spiral_in".to_string(), BulletBehavior::orbital(0.8, -60.0)),
+            (
+                "aimed".to_string(),
+                custom_behavior("aimed_spear", &[("speed", 180.0), ("smoothness", 0.8)]),
+            ),
+            ("fade_in".to_string(), fade_in()),
+            (
+                "spiral_homing".to_string(),
+                custom_behavior(
+                    "spiral_homing",
+                    &[
+                        ("spiral_speed", 80.0),
+                        ("angular_velocity", 3.0),
+                        ("homing_strength", 0.5),
+                        ("homing_delay", 0.5),
+                    ],
+                ),
+            ),
+            (
+                "wave_burst".to_string(),
+                custom_behavior(
+                    "wave_burst",
+                    &[
+                        ("base_speed", 120.0),
+                        ("wave_amplitude", 30.0),
+                        ("wave_frequency", 4.0),
+                        ("burst_time", 0.8),
+                        ("burst_multiplier", 2.5),
+                    ],
+                ),
+            ),
+            (
+                "gravity_drop".to_string(),
+                custom_behavior(
+                    "gravity_drop",
+                    &[("gravity", 200.0), ("bounce_damping", 0.7)],
+                ),
+            ),
+        ]),
+        timeline: vec![
             TimelineEvent::delta(
                 0.0,
                 "spear",
@@ -158,6 +185,7 @@ pub fn demo_attack() -> DanmakuPerformance {
                 SpawnPattern::line(6, 50.0, (1.0, 0.0)),
                 ["gravity_drop", "fade_in"],
             ),
-        ]
+        ],
+        duration: None,
     }
 }
