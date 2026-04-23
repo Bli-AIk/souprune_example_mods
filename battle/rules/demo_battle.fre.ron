@@ -20,13 +20,13 @@
     scope: Local,
     enums: {},
     facts: {
+        "enemy:0:def": Int(5),
+        "enemy:0:mercy_value": Int(0),
+        "enemy:0:atk": Int(10),
         "enemy:0:hp": Int(100),
-        "enemy:0:hp_max": Int(100),
         "battle_phase": String("initializing"),
         "battle_turn_count": Int(0),
-        "enemy:0:mercy_value": Int(0),
-        "enemy:0:def": Int(5),
-        "enemy:0:atk": Int(10),
+        "enemy:0:hp_max": Int(100),
     },
     rules: [
         (
