@@ -1,15 +1,14 @@
-//! Bootstrapped code asset for `battle/view/undertale_no_box.view.ron`.
+//! View asset for `battle/view/undertale_no_box.view.ron`.
 //!
-//! `battle/view/undertale_no_box.view.ron` 的 bootstrap 代码资源。
+//! `battle/view/undertale_no_box.view.ron` 的 view 资源。
 
 use anyhow::Result;
-use souprune_schema::val::*;
 use souprune_schema::view::*;
 use souprune_vessel::prelude::*;
 
-/// Emit this bootstrapped asset.
+/// Emit this asset.
 ///
-/// 生成当前 bootstrap 资源。
+/// 生成当前资源。
 pub fn emit(reg: &mut Registry) -> Result<()> {
     reg.emit_auto(file!(), &asset())?;
     Ok(())
@@ -19,696 +18,111 @@ pub fn emit(reg: &mut Registry) -> Result<()> {
 ///
 /// 构建该资源的类型化值。
 pub fn asset() -> ViewLayoutAsset {
-    ViewLayout {
-        roots: vec![
-            ViewNodeDef {
-                name: "BtnFight".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: None,
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/fight/false.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(-233.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.0),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnFightSelected".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: Some("$button_selection == 0".into()),
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/fight/true.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(-233.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.5),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnAct".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: None,
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/act/false.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(-80.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.0),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnActSelected".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: Some("$button_selection == 1".into()),
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/act/true.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(-80.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.5),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnItem".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: None,
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/item/false.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(80.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.0),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnItemSelected".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: Some("$button_selection == 2".into()),
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/item/true.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(80.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.5),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnMercy".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: None,
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/mercy/false.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(235.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.0),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BtnMercySelected".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: Some("$button_selection == 3".into()),
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: Some(SpriteDef {
-                    visual: Visual("assets/textures/battle/view/mercy/true.png".into()),
-                    initial_state: None,
-                    color: None,
-                    flip_x: false,
-                    flip_y: false,
-                    transform: Some(SerializableTransform {
-                        translation: Some((
-                            Val::Static(235.0),
-                            Val::Static(-213.0),
-                            Val::Static(1.5),
-                        )),
-                        rotation: None,
-                        scale: None,
-                    }),
-                    pivot: None,
-                    frame_duration: None,
-                    visible_when: None,
-                    material: None,
-                }),
-                state_sprite: None,
-                texts: vec![],
-                view_box: None,
-                children: vec![],
-                repeat: None,
-            },
-            ViewNodeDef {
-                name: "BattleHUD".into(),
-                tags: vec![],
-                style: StyleDef {
-                    width: None,
-                    height: None,
-                    left: None,
-                    right: None,
-                    top: None,
-                    bottom: None,
-                    position_type: None,
-                    flex_direction: None,
-                    justify_content: None,
-                    align_items: None,
-                },
-                visible_when: None,
-                background_color: None,
-                border_color: None,
-                image: None,
-                sprite: None,
-                state_sprite: None,
-                texts: vec![
-                    TextDef {
-                        id: "PlayerName".into(),
-                        content: Some("{$player:name}".into()),
-                        font: "battlehud".into(),
-                        align: None,
-                        anchor: None,
-                        world_scale: (Val::Static(24.0), Val::Static(24.0)),
-                        color: (
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                        ),
-                        transform: SerializableTransform {
-                            translation: Some((
-                                Val::Static(-290.0),
-                                Val::Static(-155.5),
-                                Val::Static(1.0),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        },
-                        line_height: None,
-                        char_spacing: None,
-                        word_spacing: None,
-                        conditional_style: None,
-                        visible_when: None,
-                    },
-                    TextDef {
-                        id: "PlayerLevelLabel".into(),
-                        content: Some("{{battle/ui:LV}}".into()),
-                        font: "battlehud".into(),
-                        align: None,
-                        anchor: None,
-                        world_scale: (Val::Static(24.0), Val::Static(24.0)),
-                        color: (
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                        ),
-                        transform: SerializableTransform {
-                            translation: Some((
-                                Val::Static(-187.5),
-                                Val::Static(-155.5),
-                                Val::Static(1.0),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        },
-                        line_height: None,
-                        char_spacing: None,
-                        word_spacing: None,
-                        conditional_style: None,
-                        visible_when: None,
-                    },
-                    TextDef {
-                        id: "PlayerLevelValue".into(),
-                        content: Some("{$player:lv}".into()),
-                        font: "battlehud".into(),
-                        align: None,
-                        anchor: None,
-                        world_scale: (Val::Static(24.0), Val::Static(24.0)),
-                        color: (
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                        ),
-                        transform: SerializableTransform {
-                            translation: Some((
-                                Val::Static(-148.5),
-                                Val::Static(-155.5),
-                                Val::Static(1.0),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        },
-                        line_height: None,
-                        char_spacing: None,
-                        word_spacing: None,
-                        conditional_style: None,
-                        visible_when: None,
-                    },
-                    TextDef {
-                        id: "HPValueCurrent".into(),
-                        content: Some("{$player:hp}".into()),
-                        font: "battlehud".into(),
-                        align: None,
-                        anchor: None,
-                        world_scale: (Val::Static(24.0), Val::Static(24.0)),
-                        color: (
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                        ),
-                        transform: SerializableTransform {
-                            translation: Some((
-                                Val::Expr("-5.5 + ($player:hp_max - 20) * 94.5 / 79".into()),
-                                Val::Static(-155.5),
-                                Val::Static(1.0),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        },
-                        line_height: None,
-                        char_spacing: None,
-                        word_spacing: None,
-                        conditional_style: None,
-                        visible_when: None,
-                    },
-                    TextDef {
-                        id: "HPSeparator".into(),
-                        content: Some("/".into()),
-                        font: "battlehud".into(),
-                        align: None,
-                        anchor: None,
-                        world_scale: (Val::Static(24.0), Val::Static(24.0)),
-                        color: (
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                        ),
-                        transform: SerializableTransform {
-                            translation: Some((
-                                Val::Expr("33.5 + ($player:hp_max - 20) * 94.5 / 79".into()),
-                                Val::Static(-155.5),
-                                Val::Static(1.0),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        },
-                        line_height: None,
-                        char_spacing: None,
-                        word_spacing: None,
-                        conditional_style: None,
-                        visible_when: None,
-                    },
-                    TextDef {
-                        id: "HPValueMax".into(),
-                        content: Some("{$player:hp_max}".into()),
-                        font: "battlehud".into(),
-                        align: None,
-                        anchor: None,
-                        world_scale: (Val::Static(24.0), Val::Static(24.0)),
-                        color: (
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                            Val::Static(1.0),
-                        ),
-                        transform: SerializableTransform {
-                            translation: Some((
-                                Val::Expr("57.5 + ($player:hp_max - 20) * 94.5 / 79".into()),
-                                Val::Static(-155.5),
-                                Val::Static(1.0),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        },
-                        line_height: None,
-                        char_spacing: None,
-                        word_spacing: None,
-                        conditional_style: None,
-                        visible_when: None,
-                    },
-                ],
-                view_box: None,
-                children: vec![
-                    ViewNodeDef {
-                        name: "HPSprite".into(),
-                        tags: vec![],
-                        style: StyleDef {
-                            width: None,
-                            height: None,
-                            left: None,
-                            right: None,
-                            top: None,
-                            bottom: None,
-                            position_type: None,
-                            flex_direction: None,
-                            justify_content: None,
-                            align_items: None,
-                        },
-                        visible_when: None,
-                        background_color: None,
-                        border_color: None,
-                        image: None,
-                        sprite: Some(SpriteDef {
-                            visual: Visual("assets/textures/battle/view/hpname.png".into()),
-                            initial_state: None,
-                            color: None,
-                            flip_x: false,
-                            flip_y: false,
-                            transform: Some(SerializableTransform {
-                                translation: Some((
-                                    Val::Static(-64.5),
-                                    Val::Static(-170.0),
-                                    Val::Static(1.0),
-                                )),
-                                rotation: None,
-                                scale: None,
-                            }),
-                            pivot: None,
-                            frame_duration: None,
-                            visible_when: None,
-                            material: None,
-                        }),
-                        state_sprite: None,
-                        texts: vec![],
-                        view_box: None,
-                        children: vec![],
-                        repeat: None,
-                    },
-                    ViewNodeDef {
-                        name: "HPBar".into(),
-                        tags: vec![],
-                        style: StyleDef {
-                            width: None,
-                            height: None,
-                            left: None,
-                            right: None,
-                            top: None,
-                            bottom: None,
-                            position_type: None,
-                            flex_direction: None,
-                            justify_content: None,
-                            align_items: None,
-                        },
-                        visible_when: None,
-                        background_color: None,
-                        border_color: None,
-                        image: None,
-                        sprite: Some(SpriteDef {
-                            visual: Visual("procedural://white_pixel".into()),
-                            initial_state: None,
-                            color: None,
-                            flip_x: false,
-                            flip_y: false,
-                            transform: Some(SerializableTransform {
-                                translation: Some((
-                                    Val::Static(-45.0),
-                                    Val::Static(-170.5),
-                                    Val::Static(1.0),
-                                )),
-                                rotation: None,
-                                scale: Some((
-                                    Val::Expr("25.0 + ($player:hp_max - 20) * 95.0 / 79".into()),
-                                    Val::Static(20.5),
-                                    Val::Static(1.0),
-                                )),
-                            }),
-                            pivot: Some((Val::Static(0.0), Val::Static(0.5))),
-                            frame_duration: None,
-                            visible_when: None,
-                            material: Some(MaterialDef {
-                                shader: "assets/shaders/hp_bar_sprite.wgsl".into(),
-                                params: vec![
-                                    (
-                                        "half_width".into(),
-                                        MaterialParamValue::Expr(
-                                            "40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2".into(),
-                                        ),
-                                    ),
-                                    ("alpha".into(), MaterialParamValue::Static(1.0)),
-                                    ("lag_ratio".into(), MaterialParamValue::Static(1.0)),
-                                    (
-                                        "hp_ratio".into(),
-                                        MaterialParamValue::Expr(
-                                            "$player:hp / $player:hp_max".into(),
-                                        ),
-                                    ),
-                                ]
-                                .into_iter()
-                                .collect(),
-                                animations: Some(MaterialAnimationsDef {
-                                    lag: Some(LagAnimationDef {
-                                        source: "hp_ratio".into(),
-                                        target: "lag_ratio".into(),
-                                        delay: 0.2,
-                                        duration: 0.4,
-                                        easing: EasingDef::OutCirc,
-                                    }),
-                                }),
-                                texture: None,
-                            }),
-                        }),
-                        state_sprite: None,
-                        texts: vec![],
-                        view_box: None,
-                        children: vec![],
-                        repeat: None,
-                    },
-                ],
-                repeat: None,
-            },
-        ],
-        requires: vec![],
-        facts: Some(
-            vec![("button_selection".into(), InitialFactValue::Int(0))]
-                .into_iter()
-                .collect(),
+    view_layout(vec![
+        view_node("BtnFight").sprite(
+            view_sprite("assets/textures/battle/view/fight/false.png")
+                .translation(vector3(-233.0, -213.0, 1.0)),
         ),
-        world_space: true,
-        coordinate_system: CoordinateSystem::Standard,
-    }
+        view_node("BtnFightSelected")
+            .visible_when("$button_selection == 0")
+            .sprite(
+                view_sprite("assets/textures/battle/view/fight/true.png")
+                    .translation(vector3(-233.0, -213.0, 1.5)),
+            ),
+        view_node("BtnAct").sprite(
+            view_sprite("assets/textures/battle/view/act/false.png")
+                .translation(vector3(-80.0, -213.0, 1.0)),
+        ),
+        view_node("BtnActSelected")
+            .visible_when("$button_selection == 1")
+            .sprite(
+                view_sprite("assets/textures/battle/view/act/true.png")
+                    .translation(vector3(-80.0, -213.0, 1.5)),
+            ),
+        view_node("BtnItem").sprite(
+            view_sprite("assets/textures/battle/view/item/false.png")
+                .translation(vector3(80.0, -213.0, 1.0)),
+        ),
+        view_node("BtnItemSelected")
+            .visible_when("$button_selection == 2")
+            .sprite(
+                view_sprite("assets/textures/battle/view/item/true.png")
+                    .translation(vector3(80.0, -213.0, 1.5)),
+            ),
+        view_node("BtnMercy").sprite(
+            view_sprite("assets/textures/battle/view/mercy/false.png")
+                .translation(vector3(235.0, -213.0, 1.0)),
+        ),
+        view_node("BtnMercySelected")
+            .visible_when("$button_selection == 3")
+            .sprite(
+                view_sprite("assets/textures/battle/view/mercy/true.png")
+                    .translation(vector3(235.0, -213.0, 1.5)),
+            ),
+        view_node("BattleHUD")
+            .texts(vec![
+                view_text("PlayerName", "{$player:name}", "battlehud")
+                    .world_scale(vector2(24.0, 24.0))
+                    .translation(vector3(-290.0, -155.5, 1.0)),
+                view_text("PlayerLevelLabel", "{{battle/ui:LV}}", "battlehud")
+                    .world_scale(vector2(24.0, 24.0))
+                    .translation(vector3(-187.5, -155.5, 1.0)),
+                view_text("PlayerLevelValue", "{$player:lv}", "battlehud")
+                    .world_scale(vector2(24.0, 24.0))
+                    .translation(vector3(-148.5, -155.5, 1.0)),
+                view_text("HPValueCurrent", "{$player:hp}", "battlehud")
+                    .world_scale(vector2(24.0, 24.0))
+                    .translation(vector3(
+                        expression("-5.5 + ($player:hp_max - 20) * 94.5 / 79"),
+                        -155.5,
+                        1.0,
+                    )),
+                view_text("HPSeparator", "/", "battlehud")
+                    .world_scale(vector2(24.0, 24.0))
+                    .translation(vector3(
+                        expression("33.5 + ($player:hp_max - 20) * 94.5 / 79"),
+                        -155.5,
+                        1.0,
+                    )),
+                view_text("HPValueMax", "{$player:hp_max}", "battlehud")
+                    .world_scale(vector2(24.0, 24.0))
+                    .translation(vector3(
+                        expression("57.5 + ($player:hp_max - 20) * 94.5 / 79"),
+                        -155.5,
+                        1.0,
+                    )),
+            ])
+            .children(vec![
+                view_node("HPSprite").sprite(
+                    view_sprite("assets/textures/battle/view/hpname.png")
+                        .translation(vector3(-64.5, -170.0, 1.0)),
+                ),
+                view_node("HPBar").sprite(
+                    view_sprite("procedural://white_pixel")
+                        .translation(vector3(-45.0, -170.5, 1.0))
+                        .scale(vector3(
+                            expression("25.0 + ($player:hp_max - 20) * 95.0 / 79"),
+                            20.5,
+                            1.0,
+                        ))
+                        .pivot(vector2(0.0, 0.5))
+                        .material(
+                            material("assets/shaders/hp_bar_sprite.wgsl")
+                                .static_parameter("alpha", 1.0)
+                                .expression_parameter(
+                                    "half_width",
+                                    "40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2",
+                                )
+                                .expression_parameter("hp_ratio", "$player:hp / $player:hp_max")
+                                .static_parameter("lag_ratio", 1.0)
+                                .lag_animation(
+                                    lag_animation("hp_ratio", "lag_ratio")
+                                        .easing(EasingDef::OutCirc),
+                                ),
+                        ),
+                ),
+            ]),
+    ])
+    .initial_facts(vec![("button_selection", InitialFactValue::Int(0))])
+    .world_space(true)
 }

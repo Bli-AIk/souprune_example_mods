@@ -1,15 +1,14 @@
-//! Bootstrapped code asset for `battle/view/sans_idle.view.ron`.
+//! View asset for `battle/view/sans_idle.view.ron`.
 //!
-//! `battle/view/sans_idle.view.ron` 的 bootstrap 代码资源。
+//! `battle/view/sans_idle.view.ron` 的 view 资源。
 
 use anyhow::Result;
-use souprune_schema::val::*;
 use souprune_schema::view::*;
 use souprune_vessel::prelude::*;
 
-/// Emit this bootstrapped asset.
+/// Emit this asset.
 ///
-/// 生成当前 bootstrap 资源。
+/// 生成当前资源。
 pub fn emit(reg: &mut Registry) -> Result<()> {
     reg.emit_auto(file!(), &asset())?;
     Ok(())
@@ -19,144 +18,27 @@ pub fn emit(reg: &mut Registry) -> Result<()> {
 ///
 /// 构建该资源的类型化值。
 pub fn asset() -> ViewLayoutAsset {
-    ViewLayout {
-        roots: vec![ViewNodeDef {
-            name: "Sans_Legs".into(),
-            tags: vec![],
-            style: StyleDef {
-                width: None,
-                height: None,
-                left: None,
-                right: None,
-                top: None,
-                bottom: None,
-                position_type: None,
-                flex_direction: None,
-                justify_content: None,
-                align_items: None,
-            },
-            visible_when: None,
-            background_color: None,
-            border_color: None,
-            image: None,
-            sprite: Some(SpriteDef {
-                visual: Visual("assets/textures/battle/sans/legs.png".into()),
-                initial_state: None,
-                color: None,
-                flip_x: false,
-                flip_y: false,
-                transform: Some(SerializableTransform {
-                    translation: Some((Val::Static(3.0), Val::Static(57.0), Val::Static(0.0))),
-                    rotation: None,
-                    scale: Some((Val::Static(2.0), Val::Static(2.0), Val::Static(2.0))),
-                }),
-                pivot: None,
-                frame_duration: None,
-                visible_when: None,
-                material: None,
-            }),
-            state_sprite: None,
-            texts: vec![],
-            view_box: None,
-            children: vec![
-                ViewNodeDef {
-                    name: "Sans_Torso".into(),
-                    tags: vec![],
-                    style: StyleDef {
-                        width: None,
-                        height: None,
-                        left: None,
-                        right: None,
-                        top: None,
-                        bottom: None,
-                        position_type: None,
-                        flex_direction: None,
-                        justify_content: None,
-                        align_items: None,
-                    },
-                    visible_when: None,
-                    background_color: None,
-                    border_color: None,
-                    image: None,
-                    sprite: Some(SpriteDef {
-                        visual: Visual("assets/textures/battle/sans/torso.png".into()),
-                        initial_state: None,
-                        color: None,
-                        flip_x: false,
-                        flip_y: false,
-                        transform: Some(SerializableTransform {
-                            translation: Some((
-                                Val::Expr("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)".into()),
-                                Val::Expr(
-                                    "23.0 + (sin(snap(@time * 0.5, 1.0/30.0) * 20.0) / 1.5)".into(),
-                                ),
-                                Val::Static(0.1),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        }),
-                        pivot: None,
-                        frame_duration: None,
-                        visible_when: None,
-                        material: None,
-                    }),
-                    state_sprite: None,
-                    texts: vec![],
-                    view_box: None,
-                    children: vec![],
-                    repeat: None,
-                },
-                ViewNodeDef {
-                    name: "Sans_Head".into(),
-                    tags: vec![],
-                    style: StyleDef {
-                        width: None,
-                        height: None,
-                        left: None,
-                        right: None,
-                        top: None,
-                        bottom: None,
-                        position_type: None,
-                        flex_direction: None,
-                        justify_content: None,
-                        align_items: None,
-                    },
-                    visible_when: None,
-                    background_color: None,
-                    border_color: None,
-                    image: None,
-                    sprite: Some(SpriteDef {
-                        visual: Visual("assets/textures/battle/sans/head.png".into()),
-                        initial_state: None,
-                        color: None,
-                        flip_x: false,
-                        flip_y: false,
-                        transform: Some(SerializableTransform {
-                            translation: Some((
-                                Val::Expr("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)".into()),
-                                Val::Expr("45.0 + sin(snap(@time * 0.5, 1.0/30.0) * 20.0)".into()),
-                                Val::Static(0.2),
-                            )),
-                            rotation: None,
-                            scale: None,
-                        }),
-                        pivot: None,
-                        frame_duration: None,
-                        visible_when: None,
-                        material: None,
-                    }),
-                    state_sprite: None,
-                    texts: vec![],
-                    view_box: None,
-                    children: vec![],
-                    repeat: None,
-                },
-            ],
-            repeat: None,
-        }],
-        requires: vec![],
-        facts: None,
-        world_space: true,
-        coordinate_system: CoordinateSystem::Standard,
-    }
+    view_layout(vec![view_node("Sans_Legs")
+        .sprite(
+            view_sprite("assets/textures/battle/sans/legs.png")
+                .translation(vector3(3.0, 57.0, 0.0))
+                .scale(vector3(2.0, 2.0, 2.0)),
+        )
+        .children(vec![
+            view_node("Sans_Torso").sprite(
+                view_sprite("assets/textures/battle/sans/torso.png").translation(vector3(
+                    expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
+                    expression("23.0 + (sin(snap(@time * 0.5, 1.0/30.0) * 20.0) / 1.5)"),
+                    0.1,
+                )),
+            ),
+            view_node("Sans_Head").sprite(
+                view_sprite("assets/textures/battle/sans/head.png").translation(vector3(
+                    expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
+                    expression("45.0 + sin(snap(@time * 0.5, 1.0/30.0) * 20.0)"),
+                    0.2,
+                )),
+            ),
+        ])])
+    .world_space(true)
 }
