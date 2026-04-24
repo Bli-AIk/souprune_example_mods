@@ -15,6 +15,7 @@
 //    structure globally, please edit the Vessel source schema/configuration
 //    instead of modifying this file directly.
 // =============================================================================
+// Generated at: 2026-04-24 07:05:26 +08:00
 
 (
     scope: Local,
@@ -22,11 +23,11 @@
     facts: {
         "battle_phase": String("initializing"),
         "battle_turn_count": Int(0),
-        "enemy:0:mercy_value": Int(0),
         "enemy:0:atk": Int(10),
+        "enemy:0:def": Int(5),
         "enemy:0:hp": Int(100),
         "enemy:0:hp_max": Int(100),
-        "enemy:0:def": Int(5),
+        "enemy:0:mercy_value": Int(0),
     },
     rules: [
         (

@@ -15,6 +15,7 @@
 //    structure globally, please edit the Vessel source schema/configuration
 //    instead of modifying this file directly.
 // =============================================================================
+// Generated at: 2026-04-24 07:05:26 +08:00
 
 (
     roots: [
@@ -262,8 +263,8 @@
                             params: {
                                 "alpha": Static(1.0),
                                 "half_width": Static(50.0),
-                                "lag_ratio": Static(1.0),
                                 "hp_ratio": Expr("$enemy_hps[@i] / $enemy_hp_maxs[@i]"),
+                                "lag_ratio": Static(1.0),
                             },
                             animations: Some((
                                 lag: Some((
@@ -1115,8 +1116,8 @@
                         material: Some((
                             shader: "assets/shaders/hp_bar_sprite.wgsl",
                             params: {
-                                "half_width": Expr("40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2"),
                                 "alpha": Static(1.0),
+                                "half_width": Expr("40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2"),
                                 "hp_ratio": Expr("$player:hp / $player:hp_max"),
                                 "lag_ratio": Static(1.0),
                             },
@@ -1168,28 +1169,28 @@
         ),
     ],
     facts: Some({
-        "view_rules_loaded": false,
-        "depth": 0,
-        "interactable": false,
-        "mercy_count": 0,
-        "dialogue_visible": false,
-        "button_selection": 0,
-        "confirm_pressed": false,
-        "enemy_selection": 0,
-        "menu_context": 0,
         "act_count": 0,
-        "action_param": "",
-        "enemy_display_limit": 3,
-        "dialogue:replay_on_resume": true,
         "act_selection": 0,
-        "item_selection": 0,
+        "action_param": "",
+        "button_selection": 0,
+        "buttons_visible": true,
+        "confirm_pressed": false,
+        "depth": 0,
+        "dialogue:replay_on_resume": true,
+        "dialogue_text": "",
+        "dialogue_visible": false,
+        "enemy_display_limit": 3,
+        "enemy_selection": 0,
         "enemy_view_offset": 0,
-        "selection_confirmed": false,
         "fight_target_visible": false,
+        "interactable": false,
+        "item_selection": 0,
+        "menu_context": 0,
+        "mercy_count": 0,
         "mercy_selection": 0,
         "narration_visible": false,
-        "dialogue_text": "",
-        "buttons_visible": true,
+        "selection_confirmed": false,
+        "view_rules_loaded": false,
     }),
     world_space: true,
     coordinate_system: Standard,
