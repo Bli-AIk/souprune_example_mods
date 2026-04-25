@@ -13,7 +13,7 @@ fn fade_in() -> BulletBehavior {
     BulletBehavior::Tween(TweenConfig {
         target: DanmakuTweenTarget::Opacity,
         duration: 2.0,
-        ease: Easing::QuadOut,
+        ease: Easing::OutQuad,
         from: 0.0,
         to: 1.0,
         delay: 0.0,
@@ -25,7 +25,7 @@ fn scale_pop() -> BulletBehavior {
     BulletBehavior::Tween(TweenConfig {
         target: DanmakuTweenTarget::Scale,
         duration: 1.0,
-        ease: Easing::QuadOut,
+        ease: Easing::OutQuad,
         from: 0.5,
         to: 1.0,
         delay: 0.0,
