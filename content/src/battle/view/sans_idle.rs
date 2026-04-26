@@ -40,12 +40,10 @@ pub fn asset() -> ViewLayoutAsset {
                     sprite: Some(SpriteDef {
                         visual: Visual("assets/textures/battle/sans/torso.png".into()),
                         transform: Some(SerializableTransform {
-                            translation: Some(vector3_value(
-                                expr::cos(sans_idle_time() * 10.0).into_schema(),
-                                (expr::literal(23.0)
-                                    + expr::group(expr::sin(sans_idle_time() * 20.0) / 1.5))
-                                .into_schema(),
-                                static_float(0.1),
+                            translation: Some(vector3(
+                                expr::cos(sans_idle_time() * 10.0),
+                                23.0 + expr::group(expr::sin(sans_idle_time() * 20.0) / 1.5),
+                                0.1,
                             )),
                             ..Default::default()
                         }),
@@ -58,11 +56,10 @@ pub fn asset() -> ViewLayoutAsset {
                     sprite: Some(SpriteDef {
                         visual: Visual("assets/textures/battle/sans/head.png".into()),
                         transform: Some(SerializableTransform {
-                            translation: Some(vector3_value(
-                                expr::cos(sans_idle_time() * 10.0).into_schema(),
-                                (expr::literal(45.0) + expr::sin(sans_idle_time() * 20.0))
-                                    .into_schema(),
-                                static_float(0.2),
+                            translation: Some(vector3(
+                                expr::cos(sans_idle_time() * 10.0),
+                                45.0 + expr::sin(sans_idle_time() * 20.0),
+                                0.2,
                             )),
                             ..Default::default()
                         }),

@@ -19,19 +19,19 @@ fn player_hp_max_delta(width: f64) -> expr::Expression {
 }
 
 fn battle_hud_hp_x(base: f64) -> FloatOrExpr {
-    (expr::literal(base) + player_hp_max_delta(94.5)).into_schema()
+    (base + player_hp_max_delta(94.5)).into()
 }
 
 fn battle_hp_bar_width() -> FloatOrExpr {
-    (expr::literal(25.0) + player_hp_max_delta(95.0)).into_schema()
+    (25.0 + player_hp_max_delta(95.0)).into()
 }
 
 fn battle_hp_bar_half_width() -> MaterialParamValue {
-    (expr::literal(40.0) + player_hp_max_delta(95.0) / 2).into_material_param()
+    (40.0 + player_hp_max_delta(95.0) / 2).into()
 }
 
 fn player_hp_ratio_param() -> MaterialParamValue {
-    (expr::fact("player:hp") / expr::fact("player:hp_max")).into_material_param()
+    (expr::fact("player:hp") / expr::fact("player:hp_max")).into()
 }
 
 /// Build the typed asset value.
@@ -182,10 +182,10 @@ pub fn asset() -> ViewLayoutAsset {
                         content: Some("{$player:hp}".into()),
                         world_scale: vector2(24.0, 24.0),
                         transform: SerializableTransform {
-                            translation: Some(vector3_value(
+                            translation: Some(vector3(
                                 battle_hud_hp_x(-5.5),
-                                static_float(-155.5),
-                                static_float(1.0),
+                                -155.5,
+                                1.0,
                             )),
                             ..Default::default()
                         },
@@ -197,10 +197,10 @@ pub fn asset() -> ViewLayoutAsset {
                         content: Some("/".into()),
                         world_scale: vector2(24.0, 24.0),
                         transform: SerializableTransform {
-                            translation: Some(vector3_value(
+                            translation: Some(vector3(
                                 battle_hud_hp_x(33.5),
-                                static_float(-155.5),
-                                static_float(1.0),
+                                -155.5,
+                                1.0,
                             )),
                             ..Default::default()
                         },
@@ -212,10 +212,10 @@ pub fn asset() -> ViewLayoutAsset {
                         content: Some("{$player:hp_max}".into()),
                         world_scale: vector2(24.0, 24.0),
                         transform: SerializableTransform {
-                            translation: Some(vector3_value(
+                            translation: Some(vector3(
                                 battle_hud_hp_x(57.5),
-                                static_float(-155.5),
-                                static_float(1.0),
+                                -155.5,
+                                1.0,
                             )),
                             ..Default::default()
                         },
@@ -241,10 +241,10 @@ pub fn asset() -> ViewLayoutAsset {
                             visual: Visual("procedural://white_pixel".into()),
                             transform: Some(SerializableTransform {
                                 translation: Some(vector3(-45.0, -170.5, 1.0)),
-                                scale: Some(vector3_value(
+                                scale: Some(vector3(
                                     battle_hp_bar_width(),
-                                    static_float(20.5),
-                                    static_float(1.0),
+                                    20.5,
+                                    1.0,
                                 )),
                                 ..Default::default()
                             }),
