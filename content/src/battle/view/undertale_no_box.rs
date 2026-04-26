@@ -14,6 +14,26 @@ pub fn emit(reg: &mut Registry) -> Result<()> {
     Ok(())
 }
 
+fn player_hp_max_delta(width: f64) -> expr::Expression {
+    (expr::fact("player:hp_max") - 20) * width / 79
+}
+
+fn battle_hud_hp_x(base: f64) -> FloatOrExpr {
+    (expr::literal(base) + player_hp_max_delta(94.5)).into_schema()
+}
+
+fn battle_hp_bar_width() -> FloatOrExpr {
+    (expr::literal(25.0) + player_hp_max_delta(95.0)).into_schema()
+}
+
+fn battle_hp_bar_half_width() -> MaterialParamValue {
+    (expr::literal(40.0) + player_hp_max_delta(95.0) / 2).into_material_param()
+}
+
+fn player_hp_ratio_param() -> MaterialParamValue {
+    (expr::fact("player:hp") / expr::fact("player:hp_max")).into_material_param()
+}
+
 /// Build the typed asset value.
 ///
 /// 构建该资源的类型化值。
@@ -163,7 +183,7 @@ pub fn asset() -> ViewLayoutAsset {
                         world_scale: vector2(24.0, 24.0),
                         transform: SerializableTransform {
                             translation: Some(vector3_value(
-                                expression("-5.5 + ($player:hp_max - 20) * 94.5 / 79"),
+                                battle_hud_hp_x(-5.5),
                                 static_float(-155.5),
                                 static_float(1.0),
                             )),
@@ -178,7 +198,7 @@ pub fn asset() -> ViewLayoutAsset {
                         world_scale: vector2(24.0, 24.0),
                         transform: SerializableTransform {
                             translation: Some(vector3_value(
-                                expression("33.5 + ($player:hp_max - 20) * 94.5 / 79"),
+                                battle_hud_hp_x(33.5),
                                 static_float(-155.5),
                                 static_float(1.0),
                             )),
@@ -193,7 +213,7 @@ pub fn asset() -> ViewLayoutAsset {
                         world_scale: vector2(24.0, 24.0),
                         transform: SerializableTransform {
                             translation: Some(vector3_value(
-                                expression("57.5 + ($player:hp_max - 20) * 94.5 / 79"),
+                                battle_hud_hp_x(57.5),
                                 static_float(-155.5),
                                 static_float(1.0),
                             )),
@@ -222,7 +242,7 @@ pub fn asset() -> ViewLayoutAsset {
                             transform: Some(SerializableTransform {
                                 translation: Some(vector3(-45.0, -170.5, 1.0)),
                                 scale: Some(vector3_value(
-                                    expression("25.0 + ($player:hp_max - 20) * 95.0 / 79"),
+                                    battle_hp_bar_width(),
                                     static_float(20.5),
                                     static_float(1.0),
                                 )),
@@ -235,16 +255,9 @@ pub fn asset() -> ViewLayoutAsset {
                                     ("alpha".into(), MaterialParamValue::Static(1.0)),
                                     (
                                         "half_width".into(),
-                                        MaterialParamValue::Expr(
-                                            "40.0 + ($player:hp_max - 20) * 95.0 / 79 / 2".into(),
-                                        ),
+                                        battle_hp_bar_half_width(),
                                     ),
-                                    (
-                                        "hp_ratio".into(),
-                                        MaterialParamValue::Expr(
-                                            "$player:hp / $player:hp_max".into(),
-                                        ),
-                                    ),
+                                    ("hp_ratio".into(), player_hp_ratio_param()),
                                     ("lag_ratio".into(), MaterialParamValue::Static(1.0)),
                                 ])
                                 .into_iter()

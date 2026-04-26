@@ -14,6 +14,10 @@ pub fn emit(reg: &mut Registry) -> Result<()> {
     Ok(())
 }
 
+fn sans_idle_time() -> expr::Expression {
+    expr::snap(expr::time() * 0.5, expr::frame_step(30.0))
+}
+
 /// Build the typed asset value.
 ///
 /// 构建该资源的类型化值。
@@ -37,10 +41,10 @@ pub fn asset() -> ViewLayoutAsset {
                         visual: Visual("assets/textures/battle/sans/torso.png".into()),
                         transform: Some(SerializableTransform {
                             translation: Some(vector3_value(
-                                expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
-                                expression(
-                                    "23.0 + (sin(snap(@time * 0.5, 1.0/30.0) * 20.0) / 1.5)",
-                                ),
+                                expr::cos(sans_idle_time() * 10.0).into_schema(),
+                                (expr::literal(23.0)
+                                    + expr::group(expr::sin(sans_idle_time() * 20.0) / 1.5))
+                                .into_schema(),
                                 static_float(0.1),
                             )),
                             ..Default::default()
@@ -55,8 +59,9 @@ pub fn asset() -> ViewLayoutAsset {
                         visual: Visual("assets/textures/battle/sans/head.png".into()),
                         transform: Some(SerializableTransform {
                             translation: Some(vector3_value(
-                                expression("cos(snap(@time * 0.5, 1.0/30.0) * 10.0)"),
-                                expression("45.0 + sin(snap(@time * 0.5, 1.0/30.0) * 20.0)"),
+                                expr::cos(sans_idle_time() * 10.0).into_schema(),
+                                (expr::literal(45.0) + expr::sin(sans_idle_time() * 20.0))
+                                    .into_schema(),
                                 static_float(0.2),
                             )),
                             ..Default::default()
